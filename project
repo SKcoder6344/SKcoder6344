@@ -1,0 +1,49 @@
+#program to print random number between fixed range and user has to guess the correct number in fixed no of chances 
+#Sujal Kumar Nayak(RKOC37A05) , 12221574 
+import random
+score=0
+
+#defining fixed range
+lower_number=1
+higher_number=10
+
+#Generate a random number 
+target=random.randint(lower_number,higher_number)
+
+#Total maximum chances
+chances=3
+
+#condition starts for selecting correct random number
+while chances>0:
+
+    #Defining user's guess
+    guess=int(input("Enter a number:".format(lower_number,higher_number)))
+
+#Checking if the guess is correct
+    if guess==target:
+        print("Congrats")
+        score+=1
+        break
+
+#Conditions if guess is incorrect
+    elif guess>target:
+        print("Have one more try your guess was too high")
+        chances-=1
+    else:
+        print("Have one more try your guess was too small")
+        chances-=1
+
+#Condition after user lost the game
+if chances==0:
+    print("Better luck next time")
+
+print("Your score is {}".format(score))
+
+#Asking user to play again 
+retry=input("Wanna play again?(y/n)")
+
+if retry.lower()!='y':
+    print("Thanks for playing")
+else:
+    print("Play again")
+
